@@ -1,0 +1,288 @@
+.Budget {
+  text-align: center;
+  background-color: #fff;
+}
+
+.Budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  /* border-bottom: 1px solid #ccc; */
+}
+
+.Budget-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Budget-header-wrapper h1 {
+  position: relative;
+  top: 10px;
+  font-size: 22px;
+  padding-left: 10px;
+}
+
+.icons {
+  font-size: 40px;
+  color: #0078d7;
+
+}
+
+
+.delete-user {
+  background: none;
+  border: 1px solid red;
+  color: red;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+}
+
+.Budget_name {
+  font-size: 100px;
+}
+
+h2 {
+  color: #0078d7;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.create-budget-wrapper {
+  padding: 5px;
+  width: 48%;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.5s ease-in-out;
+
+}
+
+.add-expense-wrapper {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48%;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.expense-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.budget-label-container {
+  flex: 1;
+}
+
+/* .budget-label-container input{
+  
+} */
+.add-expense-wrapper:hover,
+.create-budget-wrapper:hover {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.create-budget,
+.add-expense {
+  text-align: left;
+  border: 2px dashed #000000;
+  padding: 25px;
+  width: 95%;
+  height: 90%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.create-budget h3,
+.add-expense h3 {
+  margin-top: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.budget-label {
+  font-size: large;
+  font-weight: bold;
+}
+
+.create-budget input,
+.add-expense select {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Add this to Budget.css */
+
+.select-budget {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-size: 16px;
+  color: #333;
+}
+
+.select-budget:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+}
+
+.select-budget option {
+  padding: 60px;
+  background-color: #c7c7c7;
+  color: #333;
+}
+
+
+.add-expense input {
+  display: block;
+  width: 95%;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-button,
+.add-button {
+  background-color: #0078d7;
+  color: white;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 40%;
+}
+
+.create-button:hover,
+.add-button:hover {
+  background-color: #005a9e;
+}
+
+.budgets {
+  display: flex;
+  justify-content: space-around;
+  
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.budget-card {
+  border: 2px solid;
+  padding: 20px;
+  width: 30%;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.budget-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.budget-amount {
+  font-size: 1.1em;
+  color: #888;
+}
+
+.budget-progress {
+  height: 10px;
+  background-color: #ddd;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.budget-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  color: #888;
+}
+
+.details-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.details-button:hover {
+  opacity: 0.9;
+}
+
+.expenses {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-name,
+.expense-amount,
+.expense-date,
+.expense-budget {
+  width: 20%;
+  text-align: left;
+}
+
+.expense-budget {
+  color: #888;
+}
+
+.delete-expense {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+}
