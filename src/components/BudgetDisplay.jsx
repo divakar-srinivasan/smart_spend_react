@@ -13,7 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-const Budget = () => {
+const BudgetDisplay = () => {
   const data = useSelector((state) => state.budget.myBudget);
   console.log(data);
   const navigate = useNavigate();
@@ -92,7 +92,7 @@ const Budget = () => {
 
   const handleDetails = (budgetItem) => {
     dispatch(setSelectedBudget(budgetItem));
-    navigate("/detail");
+    navigate("/editYourBudget");
   };
   return (
     <div className="Budget">
@@ -239,4 +239,4 @@ const Budget = () => {
   );
 };
 
-export default Budget;
+export default BudgetDisplay;

@@ -16,6 +16,8 @@ const CreateBudgetPage = () => {
     budgetName: "",
     amount: "",
   });
+  const data = useSelector((state) => state.budget.myBudget);
+  console.log(data);
   console.log(userName);
   useEffect(() => {
     const notify = () => {
@@ -52,7 +54,7 @@ const CreateBudgetPage = () => {
         budgetName: "",
         amount: "",
       });
-      navigate("/home");
+      navigate("/BudgetDisplay");
     }
   };
   return (

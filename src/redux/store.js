@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
 import sessionStorage from "redux-persist/lib/storage/session";
-import userReducer from "./slices/slice";
-import budgetReducer from "./slices/budget";
+import userReducer from "../redux/slices/slice";
+import budgetReducer from "../redux/slices/budget";
 const rootReducer = combineReducers({
   name: userReducer,
   budget: budgetReducer,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setName } from "../redux/slices/slice";
+import {setName} from "../redux/slices/slice";
 import "../css/LandingPage.css";
 import img from "../assets/login.jpg";
 import { AiFillHome } from "react-icons/ai";
