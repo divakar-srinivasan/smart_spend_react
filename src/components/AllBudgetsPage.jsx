@@ -1,3 +1,5 @@
+//single budget expenses display page
+
 import React, { useState } from "react";
 import "../css/detail.css";
 import { AiFillHome } from "react-icons/ai";
