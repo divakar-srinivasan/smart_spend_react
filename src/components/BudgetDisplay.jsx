@@ -8,14 +8,12 @@ import {
   setBudget,
   addExpense,
   setSelectedBudget,
+  clearData,
 } from "../redux/slices/budget";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-
 const BudgetDisplay = () => {
-  const data = useSelector((state) => state.budget.myBudget);
-  console.log(data);
   const navigate = useNavigate();
   const [selectedBudget, setSelectBudget] = useState("");
   const [expenseName, setExpenseName] = useState("");
@@ -69,6 +67,13 @@ const BudgetDisplay = () => {
       });
     }
   };
+  const handleClearAllData = () => {
+    if (window.confirm("Are you sure you want to clear all data?")) {
+      dispatch(clearData());
+      alert("All data cleared!");
+      navigate("/");
+    }
+  };
 
   const handleAddExpense = () => {
     if (selectedBudget.trim() === "") {
@@ -94,6 +99,7 @@ const BudgetDisplay = () => {
     dispatch(setSelectedBudget(budgetItem));
     navigate("/editYourBudget");
   };
+
   return (
     <div className="Budget">
       <ToastContainer />
@@ -102,7 +108,9 @@ const BudgetDisplay = () => {
           <AiFillHome className="icons" />
           <h1 style={{ marginTop: "10px" }}>HomeBudget</h1>
         </div>
-        <button className="delete-user">Delete User</button>
+        <button className="delete-user" onClick={handleClearAllData}>
+          Delete User
+        </button>
       </header>
       <main>
         <h2 className="Budget_name">Welcome back, gowri</h2>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../css/detail.css";
 import { AiFillHome } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,7 +16,11 @@ const AllBudgetsPage = () => {
   const dispatch = useDispatch();
 
   const selectedData = useSelector((state) => state.budget.SelectedBudget);
-  const expenses = selectedData ? selectedData.expenses : [];
+  const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    setExpenses(selectedData ? selectedData.expenses : []);
+  }, []);
 
   const budget = selectedData ? parseFloat(selectedData.amount) : 0;
 
@@ -26,8 +30,6 @@ const AllBudgetsPage = () => {
   );
   const remaining = budget - totalSpent;
   const progressPercentage = (totalSpent / budget) * 100;
-
-  // Function to add new expense
   const handleAddExpense = async () => {
     if (expenseName.trim() === "") {
       toast.error("Enter the expense name");
@@ -45,10 +47,16 @@ const AllBudgetsPage = () => {
     };
 
     try {
+      // Dispatch the action to add the expense
       await dispatch(
         addExpense({ budgetName: selectedData.name, expense: newExpense })
       );
-      dispatch(setSelectedBudget(selectedData)); // Reset SelectedBudget to trigger re-render
+      // Update the selected budget to trigger re-render
+      dispatch(setSelectedBudget(selectedData));
+
+      // Update local expenses state
+      setExpenses((prevExpenses) => [...prevExpenses, newExpense]);
+
       toast.success("Expense added successfully!");
       setExpenseName("");
       setAmount("");
@@ -57,13 +65,18 @@ const AllBudgetsPage = () => {
     }
   };
 
-  // Function to delete expense
   const handleDeleteExpense = async (index) => {
     try {
+      // Perform the delete action
       await dispatch(
         deleteExpenses({ budgetName: selectedData.name, expenseIndex: index })
       );
-      dispatch(setSelectedBudget(selectedData)); // Reset SelectedBudget to trigger re-render
+      // Update the selected budget to trigger re-render
+      dispatch(setSelectedBudget(selectedData));
+
+      // Update local expenses state
+      setExpenses((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
+
       toast.success("Expense deleted successfully!");
     } catch (error) {
       toast.error("Failed to delete expense");
@@ -126,7 +139,7 @@ const AllBudgetsPage = () => {
 
       <div className="expenses-expenses">
         <h2>Expenses</h2>
-        <table>
+        <table >
           <thead>
             <tr>
               <th>Name</th>
@@ -154,6 +167,5 @@ const AllBudgetsPage = () => {
     </div>
   );
 };
-
 
 export default AllBudgetsPage;

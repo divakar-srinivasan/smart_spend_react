@@ -29,10 +29,22 @@ export const budgetSlice = createSlice({
     },
     deleteBudget: (state, action) => {
       const budgetName = action.payload;
-      state.myBudget = state.myBudget.filter((budget) => budget.name !== budgetName);
+      state.myBudget = state.myBudget.filter(
+        (budget) => budget.name !== budgetName
+      );
+    },
+    clearData: (state) => {
+      (state.myBudget = []), (state.SelectedBudget = null);
     },
   },
 });
 
-export const { setBudget, addExpense, setSelectedBudget, deleteExpenses, deleteBudget } = budgetSlice.actions;
+export const {
+  setBudget,
+  addExpense,
+  setSelectedBudget,
+  deleteExpenses,
+  deleteBudget,
+  clearData,
+} = budgetSlice.actions;
 export default budgetSlice.reducer;
