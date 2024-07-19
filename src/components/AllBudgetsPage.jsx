@@ -139,7 +139,7 @@ const AllBudgetsPage = () => {
 
       <div className="expenses-expenses">
         <h2>Expenses</h2>
-        <table >
+        <table>
           <thead>
             <tr>
               <th>Name</th>
